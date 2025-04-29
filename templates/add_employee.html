@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Add Employee{% endblock %}
+{% block content %}
+<h2>Add Employee</h2>
+<form method="post">
+  <div class="mb-3">
+    <input class="form-control" name="name" placeholder="Name" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" name="address" placeholder="Address" required>
+  </div>
+  <div class="mb-3">
+    <input class="form-control" name="email" type="email" placeholder="Email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Role</label>
+    <select class="form-select" name="role" required>
+      <option value="SalesManager">Sales Manager</option>
+      <option value="ProductManager">Product Manager</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

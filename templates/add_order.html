@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Add Order{% endblock %}
+{% block content %}
+<h2>Add Order</h2>
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Order Date</label>
+    <input type="date" name="order_date" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Customer</label>
+    <select name="customer_id" class="form-select">
+      {% for customer in customers %}
+        <option value="{{ customer.CustomerID }}">{{ customer.Name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Product</label>
+    <select name="product_id" class="form-select">
+      {% for product in products %}
+        <option value="{{ product.ProductID }}">{{ product.Name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales by Store</title>
+</head>
+<body>
+    <h1>Total Sales by Store</h1>
+    <table border="1">
+        <tr>
+            <th>Store Name</th>
+            <th>Total Sales</th>
+        </tr>
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.StoreName }}</td>
+            <td>${{ sale.TotalSales }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

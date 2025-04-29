@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Add Customer{% endblock %}
+{% block content %}
+<h2>Add Customer</h2>
+<form method="post">
+  <div class="mb-3"><input class="form-control" name="name" placeholder="Name" required></div>
+  <div class="mb-3"><input class="form-control" name="address" placeholder="Address" required></div>
+  <div class="mb-3"><input class="form-control" name="email" type="email" placeholder="Email" required></div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

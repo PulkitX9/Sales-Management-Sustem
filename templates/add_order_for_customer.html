@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Add Order for {{ customer.Name }}{% endblock %}
+{% block content %}
+<h2>Add Order for {{ customer.Name }}</h2>
+
+<form method="post">
+  <div class="mb-3">
+    <label class="form-label">Order Date</label>
+    <input type="date" name="order_date" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Select Product</label>
+    <select name="product_id" class="form-select" required>
+      {% for product in products %}
+      <option value="{{ product.ProductID }}">{{ product.Name }} (${{ product.Price }})</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Order</button>
+  <a href="{{ url_for('customer_orders', customer_id=customer.CustomerID) }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

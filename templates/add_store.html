@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Add Store{% endblock %}
+{% block content %}
+<h2>Add Store</h2>
+<form method="post">
+    <div class="mb-3"><input class="form-control" name="name" placeholder="Store Name" required></div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

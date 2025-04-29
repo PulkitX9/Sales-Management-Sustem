@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<style>
+  .hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 123, 255, 0.4);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if session.get('admin') %}
+  <p class="text-end">Logged in as <strong>Admin</strong> | <a href="{{ url_for('logout') }}">Logout</a></p>
+{% else %}
+{% endif %}
+
+<h2 class="mb-4">Main Menu</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  <div class="col">
+    <a href="/stores" class="text-decoration-none text-dark">
+      <div class="card hover-card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://img.icons8.com/fluency/48/shop.png" alt="Stores" />
+          <h5 class="card-title mt-2">Manage Stores</h5>
+          <p class="card-text text-muted">Add, edit, or remove store details.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="/products" class="text-decoration-none text-dark">
+      <div class="card hover-card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://img.icons8.com/fluency/48/product.png" alt="Products" />
+          <h5 class="card-title mt-2">Manage Products</h5>
+          <p class="card-text text-muted">Update or add product listings.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="/orders" class="text-decoration-none text-dark">
+      <div class="card hover-card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://img.icons8.com/fluency/48/purchase-order.png" alt="Orders" />
+          <h5 class="card-title mt-2">Manage Orders</h5>
+          <p class="card-text text-muted">Track and update customer orders.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="/customers" class="text-decoration-none text-dark">
+      <div class="card hover-card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://img.icons8.com/fluency/48/group.png" alt="Customers" />
+          <h5 class="card-title mt-2">Manage Customers</h5>
+          <p class="card-text text-muted">View and manage customer information.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="/employees" class="text-decoration-none text-dark">
+      <div class="card hover-card h-100 text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://img.icons8.com/fluency/48/conference-call.png" alt="Employees" />
+          <h5 class="card-title mt-2">Manage Employees</h5>
+          <p class="card-text text-muted">Add, edit, or remove employee records.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+{% endblock %}

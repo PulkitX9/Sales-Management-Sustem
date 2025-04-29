@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Orders for {{ customer.Name }}{% endblock %}
+{% block content %}
+<h2>Orders for {{ customer.Name }}</h2>
+
+{% if orders %}
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>Order #</th>
+      <th>Date</th>
+      <th>Product</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+    <tr>
+      <td>{{ order.OrderNumber }}</td>
+      <td>{{ order.OrderDate }}</td>
+      <td>{{ order.ProductName }}</td>
+      <td>${{ order.Price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h4 class="mt-4">Total Spent: ${{ total_spent }}</h4>
+{% else %}
+<p>No orders found for this customer.</p>
+{% endif %}
+<a href="{{ url_for('add_order_for_customer', customer_id=customer.CustomerID) }}" class="btn btn-primary mt-3">➕ Add Order for {{ customer.Name }}</a>
+
+<a href="{{ url_for('view_customers') }}" class="btn btn-secondary mt-3">Back to Customers</a>
+{% endblock %}
